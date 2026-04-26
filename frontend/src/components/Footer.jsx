@@ -42,7 +42,6 @@ export default function Footer() {
             <h4>Contact</h4>
             <ul>
               <li><a href="mailto:eventcrewofficial@gmail.com">eventcrewofficial@gmail.com</a></li>
-              <li><span>Chandigarh University</span></li>
             </ul>
           </div>
         </div>
