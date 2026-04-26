@@ -33,6 +33,15 @@
   pointer-events: auto;
 }
 
+
+.small-text {
+  color: transparent;
+  -webkit-text-stroke: 1px #fff;
+  font-size: 0.8em;
+  letter-spacing: 2px;
+  text-shadow: none;
+}
+
 .hero__noise {
   position: absolute;
   inset: 0;
@@ -94,17 +103,8 @@
   color: var(--red);
 }
 
-.hero__title .outline {
-  color: rgba(236, 192, 192, 0.15); 
-  -webkit-text-stroke: 2px #ffffff;
-  text-stroke: 2px #ffffff;
-  text-shadow: 
-    0 0 10px rgba(255, 255, 255, 0.4),
-    0 0 20px rgba(255, 255, 255, 0.2);
-  letter-spacing: 7px;
-}
-
 .growing-text {
+  color: transparent;
   display: inline-block;
   margin-top: 10px;  
 }

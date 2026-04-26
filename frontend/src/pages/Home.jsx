@@ -34,7 +34,7 @@ export default function Home() {
             <h1 className="hero__title">
               Built on Trust,<br />
               Bonded by <span className="red">Work,</span><br />
-              <span className="outline">Growing Like</span><br />
+              <span className="outline small-text">Growing Like</span><br />
               a Family.
             </h1>
 
