@@ -26,34 +26,45 @@ export default function Home() {
     <main className="page">
       {/* HERO */}
       <section className="hero">
-  <div className="hero__inner">
-    <div className="hero__content fade-up">
+        <div className="hero__inner">
+          <div className="hero__content fade-up">
 
-      <div className="hero__eyebrow">Premium Event Agency</div>
+            <div className="hero__eyebrow">Premium Event Agency</div>
 
-      <h1 className="hero__title">
-        Built on Trust,<br />
-        Bonded by <span className="red">Work,</span><br />
-        <span className="outline">Growing Like</span><br />
-        a Family.
-      </h1>
+            <h1 className="hero__title">
+              Built on Trust,<br />
+              Bonded by <span className="red">Work,</span><br />
+              <span className="outline">Growing Like</span><br />
+              a Family.
+            </h1>
 
-      <p className="hero__desc">
-        We create unforgettable events with passion, precision, and teamwork.
-      </p>
+            <p className="hero__desc">
+              We create unforgettable events with passion, precision, and teamwork.
+            </p>
 
-      <div className="hero__actions">
-        <button className="btn-primary">Explore Services</button>
-        <button className="btn-outline">View Portfolio</button>
-      </div>
+            <div className="hero__actions">
+              <button
+                className="btn-primary"
+                onClick={() => navigate('/services')}
+              >
+                Explore Services <FiArrowRight />
+              </button>
 
-    </div>
-  </div>
+              <button
+                className="btn-outline"
+                onClick={() => navigate('/gallery')}
+              >
+                View Portfolio
+              </button>
+            </div>
 
-  {/* Glow Effects */}
-  <div className="hero__glow hero__glow--one"></div>
-  <div className="hero__glow hero__glow--two"></div>
-</section>
+          </div>
+        </div>
+
+        {/* Glow Effects */}
+        <div className="hero__glow hero__glow--one"></div>
+        <div className="hero__glow hero__glow--two"></div>
+      </section>
 
       {/* SERVICES MINI */}
       <section className="services-preview">

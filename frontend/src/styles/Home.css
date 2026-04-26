@@ -5,38 +5,22 @@
   min-height: 100vh;
   display: flex;
   align-items: center;
+  justify-content: center;
   position: relative;
   overflow: hidden;
-  padding: 80px 0;
-  justify-content: center;
-  background: radial-gradient(circle at 20% 30%, #1a1a2e, #0f0f1a);
+  padding: 80px 20px;
+
+  background: url('https://res.cloudinary.com/dodouazko/image/upload/q_auto/f_auto/v1777211115/event_sanq1k.png') no-repeat center center;
+  background-size: cover;
 }
 
-.hero__video-wrap {
-  position: fixed;
-  /* 👈 makes video stay fixed */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -2;
-  /* 👈 stays behind everything */
-  overflow: hidden;
-}
-
-.hero__video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.hero__video-overlay {
+.hero::before {
+  content: '';
   position: absolute;
   inset: 0;
-  /* Red-tinted dark gradient — keeps brand feel */
-  background:
-    linear-gradient(135deg, rgba(10, 10, 10, 0.75) 0%, rgba(10, 10, 10, 0.45) 100%),
-    linear-gradient(to top, rgba(10, 10, 10, 0.9) 0%, transparent 50%);
+  background: rgba(0,0,0,0.55);
+  z-index: 1;
+  pointer-events: none;
 }
 
 .hero__bg {
@@ -46,7 +30,7 @@
   background:
     radial-gradient(ellipse at 70% 40%, rgba(229, 0, 0, 0.10) 0%, transparent 55%),
     radial-gradient(ellipse at 10% 80%, rgba(229, 0, 0, 0.05) 0%, transparent 50%);
-  pointer-events: none;
+  pointer-events: auto;
 }
 
 .hero__noise {
@@ -70,14 +54,9 @@
 }
 
 .hero__inner {
-  max-width: 1200px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 20px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
-  align-items: center;
-  width: 100%;
   position: relative;
   z-index: 2;
   text-align: center;
@@ -105,7 +84,7 @@
 .hero__title {
   font-family: var(--font-display);
   font-size: 52px;
-  line-height: 1.2;
+  line-height: 1.3;
   letter-spacing: 0.02em;
   margin-bottom: 28px;
   color: #fff;
@@ -116,13 +95,23 @@
 }
 
 .hero__title .outline {
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
-  color: transparent;
+  color: rgba(236, 192, 192, 0.15); 
+  -webkit-text-stroke: 2px #ffffff;
+  text-stroke: 2px #ffffff;
+  text-shadow: 
+    0 0 10px rgba(255, 255, 255, 0.4),
+    0 0 20px rgba(255, 255, 255, 0.2);
+  letter-spacing: 7px;
+}
+
+.growing-text {
+  display: inline-block;
+  margin-top: 10px;  
 }
 
 .hero__desc {
   font-size: 1rem;
-  color: #aaa;
+  color: #ccc;
   line-height: 1.75;
   max-width: 420px;
   margin-bottom: 40px;
@@ -184,76 +173,6 @@
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-top: 4px;
-}
-
-/* Hero visual */
-.hero__visual {
-  position: relative;
-  height: 520px;
-}
-
-.hero__visual-card {
-  position: absolute;
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-.hero__visual-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.8s ease;
-}
-
-.hero__visual-card:hover img {
-  transform: scale(1.05);
-}
-
-
-.hero__visual-card--main {
-  position: relative;
-  border-radius: 18px;
-  overflow: hidden;
-  transform: perspective(1000px) rotateY(-6deg) rotateX(2deg);
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
-  box-shadow:
-    0 20px 60px rgba(0, 0, 0, 0.6),
-    0 0 40px rgba(229, 0, 0, 0.25);
-}
-
-.hero__visual-card--sub {
-  bottom: 30px;
-  /* 👆 moves UP */
-  left: 20px;
-  /* 👉 moves RIGHT */
-  width: 50%;
-  height: 200px;
-  box-shadow:
-    0 16px 32px rgba(0, 0, 0, 0.4),
-    -6px 0 18px rgba(255, 0, 0, 0.25);
-}
-
-.hero__badge {
-  position: absolute;
-  bottom: -20px;
-  right: -20px;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  padding: 12px 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-}
-
-.hero__badge-num {
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: var(--red);
-}
-
-.hero__badge-text {
-  font-size: 0.75rem;
-  color: var(--gray-light);
 }
 
 /* Gallery preview section */
@@ -531,7 +450,6 @@
 
 @media (max-width: 640px) {
   .gallery-preview__grid {
-    grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
   }
 

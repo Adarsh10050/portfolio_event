@@ -22,7 +22,7 @@ export default function Gallery() {
         <div className="container fade-up">
           <div className="section-label">Our Work</div>
           <h1 className="section-title">
-            Chandigarh University <span>Events</span>
+            Our <span>Events</span>
           </h1>
           <div className="red-line" />
           <p style={{ color: 'var(--gray)', maxWidth: 460 }}>
