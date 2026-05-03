@@ -101,7 +101,7 @@
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.92);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(6px);
 }
 
 .gallery-modal__content {

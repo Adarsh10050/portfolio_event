@@ -7,6 +7,7 @@ import {
   MdTrendingUp,
 } from 'react-icons/md'
 import '../styles/Home.css'
+import { useEffect } from 'react'
 
 // Services
 const services = [
@@ -16,15 +17,40 @@ const services = [
   { icon: <MdTrendingUp />, title: 'Marketing', desc: 'Data-driven strategies that guarantee ROI and audience growth.' },
 ]
 
-// Gallery Images (ADDED BACK)
+// Gallery Images
 const galleryImages = [
-  { src: 'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=600&q=80', tag: 'Concerts' },
+  { src: 'https://res.cloudinary.com/dodouazko/image/upload/q_auto/f_auto/v1777835256/event_3_x9xaeq.jpg', tag: 'Concerts' },
   { src: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&q=80', tag: 'Live Events' },
   { src: 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=600&q=80', tag: 'Corporate' },
 ]
 
 export default function Home() {
   const navigate = useNavigate()
+
+  // 🔥 SCROLL ANIMATION LOGIC
+  useEffect(() => {
+    const elements = document.querySelectorAll('.fade-up')
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('show')
+          } else {
+            entry.target.classList.remove('show') // 👈 important
+          }
+        })
+      },
+      {
+        threshold: 0.15,
+        rootMargin: "0px 0px -50px 0px"
+      }
+    )
+
+    elements.forEach((el) => observer.observe(el))
+
+    return () => observer.disconnect()
+  }, [])
 
   return (
     <main className="page">
@@ -34,20 +60,20 @@ export default function Home() {
         <div className="hero__container">
 
           {/* LEFT */}
-          <div className="hero__left fade-up">
-            <h1 className="hero__title">
+          <div className="hero__left">
+            <h1 className="hero__title fade-up fade-up-1">
               BONDED BY <br />
               <span className="red">WORK,</span><br />
               <span className="outline">GROWING LIKE</span><br />
               A FAMILY.
             </h1>
 
-            <p className="hero__desc">
+            <p className="hero__desc fade-up fade-up-2">
               We're a group of passionate people who come together like a family
               to support, manage, and bring events to life.
             </p>
 
-            <div className="hero__actions">
+            <div className="hero__actions fade-up fade-up-3">
               <button className="btn-primary" onClick={() => navigate('/services')}>
                 Explore Services <FiArrowRight />
               </button>
@@ -57,8 +83,7 @@ export default function Home() {
               </button>
             </div>
 
-            {/* SMALL STATS (NEW) */}
-            <div className="hero__mini-stats">
+            <div className="hero__mini-stats fade-up fade-up-4">
               <div className="mini-stat">
                 <span>🏆</span>
                 <h4>2+</h4>
@@ -79,8 +104,8 @@ export default function Home() {
             </div>
           </div>
 
-          {/* RIGHT EMPTY (kept minimal) */}
-          <div className="hero__right">
+          {/* RIGHT */}
+          <div className="hero__right fade-up fade-up-2">
             <div className="hero-image">
               <img
                 src="https://res.cloudinary.com/dodouazko/image/upload/q_auto/f_auto/v1776624050/Pic_0_fhnppk.jpg"
@@ -90,10 +115,6 @@ export default function Home() {
           </div>
 
         </div>
-
-        {/* GLOW */}
-        <div className="hero__glow hero__glow--one"></div>
-        <div className="hero__glow hero__glow--two"></div>
       </section>
 
       {/* SERVICES */}
@@ -123,7 +144,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* GALLERY (IMAGES BACK) */}
+      {/* GALLERY */}
       <section className="gallery-preview">
         <div className="gallery-preview__header fade-up">
           <div>
@@ -136,7 +157,7 @@ export default function Home() {
 
         <div className="gallery-preview__grid">
           {galleryImages.map((img, i) => (
-            <div key={i} className="gallery-preview__item">
+            <div key={i} className="gallery-preview__item fade-up fade-up-1">
               <img src={img.src} alt={img.tag} />
               <div className="gallery-preview__overlay"></div>
               <span className="gallery-preview__tag">{img.tag}</span>
@@ -155,7 +176,7 @@ export default function Home() {
       </section>
 
       {/* TESTIMONIAL */}
-      <section className="testimonial-strip">
+      <section className="testimonial-strip fade-up">
         <blockquote className="testimonial-strip__quote">
           "At Event Crew, our strength lies in our unity. We turn every event into a memorable experience."
         </blockquote>
